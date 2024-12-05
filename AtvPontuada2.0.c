@@ -1,58 +1,78 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
-
-struct Aluno
+int main() 
 {
-    char nome[50];
-    char dataNascimento[20];
-    float nota1;
-    float nota2;
-    float media;
-};
+    setlocale(LC_ALL, "portuguese");
 
-float calcularMedia(struct Aluno aluno)
-{
-    return (aluno.nota1 + aluno.nota2) / 2;
-}
+    int num1, num2, i, resultado;
+    int opcao;
 
-void verificarAprovacao(struct Aluno aluno)
-{
-    if (aluno.media >= 7.0)
+    // Exibe o menu de operações
+    printf("Escolha uma operação:\n");
+    printf("1 - Tabuada de multiplicação\n");
+    printf("2 - Soma\n");
+    printf("3 - Subtração\n");
+    printf("4 - Multiplicação\n");
+    printf("5 - Divisão\n");
+    printf("Digite sua opção: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) 
     {
-        printf("%s está aprovado!\n", aluno.nome);
-    }
-    else
-    {
-        printf("%s está reprovado.\n", aluno.nome);
-    }
-}
+        case 1:
+            
+            printf("Digite um numero para calcular a tabuada: ");
+            scanf("%d", &num1);
 
-int main()
-{
-    int i;
-    struct Aluno alunos[2];
-    for (i = 0; i < 2; i++)
-    {
-        printf("Informe o nome do aluno %d: ", i + 1);
-        scanf("%s", alunos[i].nome);
-        printf("Informe a data de nascimento do aluno %d: ", i + 1);
-        scanf("%s", alunos[i].dataNascimento);
-        printf("Informe a nota 1 do aluno %d: ", i + 1);
-        scanf("%f", &alunos[i].nota1);
-        printf("Informe a nota 2 do aluno %d: ", i + 1);
-        scanf("%f", &alunos[i].nota2);
+            printf("Tabuada de %d:\n", num1);
+            for (i = 1; i <= 10; i++) 
+            {
+                resultado = num1 * i;
+                printf("%d x %d = %d\n", num1, i, resultado);
+            }
+            break;
+        
+        case 2:
+           
+            printf("Digite dois números para somar: ");
+            scanf("%d %d", &num1, &num2);
+            resultado = num1 + num2;
+            printf("Resultado: %d + %d = %d\n", num1, num2, resultado);
+            break;
 
-        alunos[i].media = calcularMedia(alunos[i]);
-    }
-    
+        case 3:
+           
+            printf("Digite dois números para subtrair: ");
+            scanf("%d %d", &num1, &num2);
+            resultado = num1 - num2;
+            printf("Resultado: %d - %d = %d\n", num1, num2, resultado);
+            break;
 
-    for (i = 0; i < 2; i++)
-    {
-        printf("Média de %s: %.2f\n", alunos[i].nome, alunos[i].media);
-        verificarAprovacao(alunos[i]);
+        case 4:
+           
+            printf("Digite dois números para multiplicar: ");
+            scanf("%d %d", &num1, &num2);
+            resultado = num1 * num2;
+            printf("Resultado: %d x %d = %d\n", num1, num2, resultado);
+            break;
+
+        case 5:
+            
+            printf("Digite dois números para dividir: ");
+            scanf("%d %d", &num1, &num2);
+            if (num2 != 0) {
+                resultado = num1 / num2;
+                printf("Resultado: %d ÷ %d = %d\n", num1, num2, resultado);
+            } else {
+                printf("Erro: Divisão por zero não permitida.\n");
+            }
+            break;
+
+        default:
+            printf("Opção inválida.\n");
     }
 
     return 0;
 }
-
