@@ -22,7 +22,7 @@ int main()
     switch (opcao) 
     {
         case 1:
-            
+            // Tabuada de multiplicação
             printf("Digite um numero para calcular a tabuada: ");
             scanf("%d", &num1);
 
@@ -35,7 +35,7 @@ int main()
             break;
         
         case 2:
-           
+            // Soma
             printf("Digite dois números para somar: ");
             scanf("%d %d", &num1, &num2);
             resultado = num1 + num2;
@@ -43,7 +43,7 @@ int main()
             break;
 
         case 3:
-           
+            // Subtração
             printf("Digite dois números para subtrair: ");
             scanf("%d %d", &num1, &num2);
             resultado = num1 - num2;
@@ -51,7 +51,7 @@ int main()
             break;
 
         case 4:
-           
+            // Multiplicação
             printf("Digite dois números para multiplicar: ");
             scanf("%d %d", &num1, &num2);
             resultado = num1 * num2;
@@ -59,7 +59,7 @@ int main()
             break;
 
         case 5:
-            
+            // Divisão
             printf("Digite dois números para dividir: ");
             scanf("%d %d", &num1, &num2);
             if (num2 != 0) {
